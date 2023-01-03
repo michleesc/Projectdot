@@ -24,3 +24,5 @@ $router->group(['prefix' => 'api/v1/testing'], function() use ($router){
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+Route::get('/karyawans','KaryawansController@index');

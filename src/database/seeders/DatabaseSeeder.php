@@ -14,12 +14,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $timestamp = \Carbon\Carbon::now()->toDateTimeString();
-        DB::table('users')->insert([
-            'username'  => 'client',
-            'password'  => Str::random(40),
-            'created_at' => $timestamp,
-            'updated_at' => $timestamp
-        ]);
+        // $timestamp = \Carbon\Carbon::now()->toDateTimeString();
+        // DB::table('users')->insert([
+        //     'username'  => 'client',
+        //     'password'  => Str::random(40),
+        //     'created_at' => $timestamp,
+        //     'updated_at' => $timestamp
+        // ]);   
+        $this->call(KaryawanSeeder::class);
     }
 }
