@@ -26,3 +26,8 @@ $router->get('/', function () use ($router) {
 });
 
 Route::get('/karyawans','KaryawansController@index');
+Route::get('/karyawans/tambah','KaryawansController@tambah');
+Route::post('/karyawans/tambah','KaryawansController@store');
+Route::get('/karyawans/edit/{id}','KaryawansController@edit');
+Route::post('/karyawans/update','KaryawansController@update');
+Route::get('/karyawans/hapus/{id}','KaryawansController@hapus');
