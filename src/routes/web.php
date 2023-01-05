@@ -25,9 +25,26 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-Route::get('/karyawans','KaryawansController@index');
-Route::get('/karyawans/tambah','KaryawansController@tambah');
-Route::post('/karyawans/tambah','KaryawansController@store');
+// route homepage
+Route::get('/home','HomepageController@index');
+
+// route karyawans
+Route::get('/karyawans/view','KaryawansController@view');
+Route::post('/karyawans','KaryawansController@store');
 Route::get('/karyawans/edit/{id}','KaryawansController@edit');
 Route::post('/karyawans/update','KaryawansController@update');
 Route::get('/karyawans/hapus/{id}','KaryawansController@hapus');
+
+// route jabatan
+// Route::get('/jabatans/view','JabatansController@view');
+// Route::post('/jabatans','JabatansController@store');
+// Route::get('/jabatans/edit/{id}','JabatansController@edit');
+// Route::post('/jabatans/update','JabatansController@update');
+// Route::get('/jabatans/hapus/{id}','JabatansController@hapus');
+
+// route penggajian
+// Route::get('/penggajians/view','PenggajiansController@view');
+// Route::post('/penggajians','PenggajiansController@store');
+// Route::get('/penggajians/edit/{id}','PenggajiansController@edit');
+// Route::post('/penggajians/update','PenggajiansController@update');
+// Route::get('/penggajians/hapus/{id}','PenggajiansController@hapus');

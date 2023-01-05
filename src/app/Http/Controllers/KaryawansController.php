@@ -8,18 +8,14 @@ use Illuminate\Support\Facades\DB;
 
 class KaryawansController extends Controller
 {
-    //
-    public function index()
+    
+    public function view()
     {
         $karyawans = DB::table('karyawans')->get();
 
-        return view('index',['karyawans' => $karyawans]);
+        return view('karyawans/view', ['karyawans' => $karyawans]);
     }
 
-    public function tambah()
-    {
-        return view('karyawans/tambah');
-    }
 
     public function store(Request $request)
     {
@@ -28,13 +24,13 @@ class KaryawansController extends Controller
             'jabatan_karyawan' => $request->jabatan,
             'umur_karyawan' => $request->umur,
         ]);
-        return redirect('/karyawans');
+        return redirect('/karyawans/view');
     }
 
     public function edit($id)
     {
         $karyawans = DB::table('karyawans')->where('id_karyawan',$id)->get();
-        return view('edit', ['karyawans' => $karyawans]);
+        return view('/karyawans/edit', ['karyawans' => $karyawans]);
     }
 
     public function update(Request $request)
@@ -44,12 +40,12 @@ class KaryawansController extends Controller
             'jabatan_karyawan' => $request->jabatan,
             'umur_karyawan' => $request->umur,
         ]);
-        return redirect('/karyawans');
+        return redirect('/karyawans/view');
     }
 
     public function hapus($id)
     {
         DB::table('karyawans')->where('id_karyawan',$id)->delete();
-        return redirect('/karyawans');
+        return redirect('/karyawans/view');
     }
 }
