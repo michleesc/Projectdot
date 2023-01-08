@@ -145,17 +145,25 @@ class KaryawansController extends Controller
         //               ->get();
 
         // cara keempat
-        $karyawans = DB::table((new Karyawan)->getTable() . ' AS db1_tb1')
-                      ->join((new Jabatan)->getTable() . ' AS db2_tb2', 'db1_tb1.jabatan_id', '=', 'db2_tb2.id')
-                      ->join((new Penggajian)
-                      ->getTable() . ' AS db3_tb3', 'db1_tb1.id', '=', 'db3_tb3.karyawan_id')
-                      ->select('db1_tb1.nama_karyawan AS nama_karyawan', 'db1_tb1.gaji_perjam',
-                      'db2_tb2.nama_jabatan AS nama_jabatan',
-                      DB::raw('SUM(db3_tb3.jam_kerja) AS total_kerja'),
-                      DB::raw('SUM(db3_tb3.jam_kerja) * db1_tb1.gaji_perjam AS total_gaji'))
-                      ->groupBy('db1_tb1.id')
-                      ->get();
+        // $karyawans = DB::table((new Karyawan)->getTable() . ' AS db1_tb1')
+        //               ->join((new Jabatan)->getTable() . ' AS db2_tb2', 'db1_tb1.jabatan_id', '=', 'db2_tb2.id')
+        //               ->join((new Penggajian)
+        //               ->getTable() . ' AS db3_tb3', 'db1_tb1.id', '=', 'db3_tb3.karyawan_id')
+        //               ->select('db1_tb1.nama_karyawan AS nama_karyawan', 'db1_tb1.gaji_perjam',
+        //               'db2_tb2.nama_jabatan AS nama_jabatan',
+        //               DB::raw('SUM(db3_tb3.jam_kerja) AS total_kerja'),
+        //               DB::raw('SUM(db3_tb3.jam_kerja) * db1_tb1.gaji_perjam AS total_gaji'))
+        //               ->groupBy('db1_tb1.id')
+        //               ->get();
 
+        
+        $karyawans = Karyawan::join('jabatans', 'karyawans.id_jabatan', '=', 'jabatans.id')
+        ->join('penggajians', 'karyawans.id', '=', 'penggajians.id_karyawan')
+        ->select('karyawans.*', 'jabatans.nama_jabatan', 
+        \DB::raw('SUM(penggajians.jam_kerja) as total_kerja'), 
+        \DB::raw('SUM(karyawans.gaji_perjam * penggajians.jam_kerja) as total_gaji'))
+        ->groupBy('karyawans.id')
+        ->get();
         return response()->json($karyawans);
     }
 }

@@ -20,6 +20,8 @@ return new class extends Migration
                 $table->string('gaji_perjam');
                 $table->unsignedBigInteger('id_jabatan')->nullable();;
                 $table->timestamps();
+
+                
             });
     }
 

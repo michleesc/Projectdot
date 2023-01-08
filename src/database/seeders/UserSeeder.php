@@ -15,5 +15,12 @@ class UserSeeder extends Seeder
     public function run()
     {
         //
+        $timestamp = \Carbon\Carbon::now()->toDateTimeString();
+        DB::connection('project_akhir')->table('users')->insert([
+            'username'  => 'client',
+            'password'  => Str::random(40),
+            'created_at' => $timestamp,
+            'updated_at' => $timestamp
+        ]);   
     }
 }
