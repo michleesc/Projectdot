@@ -13,13 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('karyawans', function (Blueprint $table) {
-            $table->id('id_karyawan');
-            $table->string('nama_karyawan');
-            $table->string('jabatan_karyawan');
-            $table->string('umur_karyawan');
-            $table->timestamps();
-        });
+        Schema::connection('db_karyawan')->dropIfExists('karyawans');
+            Schema::connection('db_karyawan')->create('karyawans', function (Blueprint $table) {
+                $table->id();
+                $table->string('nama_karyawan');
+                $table->string('gaji_perjam');
+                $table->unsignedBigInteger('id_jabatan')->nullable();;
+                $table->timestamps();
+            });
     }
 
     /**

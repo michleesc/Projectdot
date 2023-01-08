@@ -26,25 +26,26 @@ $router->get('/', function () use ($router) {
 });
 
 // route homepage
-Route::get('/home','HomepageController@index');
+// Route::get('/home','HomepageController@index');
 
 // route karyawans
-Route::get('/karyawans/view','KaryawansController@view');
-Route::post('/karyawans','KaryawansController@store');
-Route::get('/karyawans/edit/{id}','KaryawansController@edit');
-Route::post('/karyawans/update','KaryawansController@update');
-Route::get('/karyawans/hapus/{id}','KaryawansController@hapus');
+Route::get('/api/v1/karyawans/detail','KaryawansController@detail');
+Route::get('/api/v1/karyawans/','KaryawansController@index');
+Route::post('/api/v1/karyawans/','KaryawansController@create');
+Route::put('/api/v1/karyawans/{id}','KaryawansController@update');
+Route::get('/api/v1/karyawans/{id}','KaryawansController@show');
+Route::delete('/api/v1/karyawans/{id}','KaryawansController@destroy');
 
 // route jabatan
-// Route::get('/jabatans/view','JabatansController@view');
-// Route::post('/jabatans','JabatansController@store');
-// Route::get('/jabatans/edit/{id}','JabatansController@edit');
-// Route::post('/jabatans/update','JabatansController@update');
-// Route::get('/jabatans/hapus/{id}','JabatansController@hapus');
+Route::get('/api/v1/jabatans/','JabatansController@index');
+Route::post('/api/v1/jabatans/','JabatansController@create');
+Route::put('/api/v1/jabatans/{id}','JabatansController@update');
+Route::get('/api/v1/jabatans/{id}','JabatansController@show');
+Route::delete('/api/v1/jabatans/{id}','JabatansController@destroy');
 
 // route penggajian
-// Route::get('/penggajians/view','PenggajiansController@view');
-// Route::post('/penggajians','PenggajiansController@store');
-// Route::get('/penggajians/edit/{id}','PenggajiansController@edit');
-// Route::post('/penggajians/update','PenggajiansController@update');
-// Route::get('/penggajians/hapus/{id}','PenggajiansController@hapus');
+Route::get('/api/v1/penggajians/','PenggajiansController@index');
+Route::post('/api/v1/penggajians/','PenggajiansController@create');
+Route::put('/api/v1/penggajians/{id}','PenggajiansController@update');
+Route::get('/api/v1/penggajians/{id}','PenggajiansController@show');
+Route::delete('/api/v1/penggajians/{id}','PenggajiansController@destroy');

@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('penggajians', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        Schema::connection('db_penggajian')->dropIfExists('penggajians');
+            Schema::connection('db_penggajian')->create('penggajians', function (Blueprint $table) {
+                $table->id();
+                $table->unsignedBigInteger('id_karyawan')->nullable();;
+                $table->string('jam_kerja');
+                $table->timestamps();
+                
+            });
     }
 
     /**

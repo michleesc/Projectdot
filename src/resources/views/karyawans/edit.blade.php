@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -20,7 +20,7 @@
 
 <body>
     <div class="mx-auto">
-        <!-- untuk memasukkan data -->
+        untuk memasukkan data
         <div class="card">
             <div class="card-header">
                 Edit
@@ -60,4 +60,4 @@
                 @endforeach
 
             </div>
-        </div>
+        </div> -->

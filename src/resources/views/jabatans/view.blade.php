@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -20,16 +20,16 @@
 
 <body>
     <div class="mx-auto">
-        <!-- untuk memasukkan data -->
+        untuk memasukkan data
         <div class="card" >
             <div class="card-header">
-                <a href="/Project/Tampilan.html"></a>
+                <a href="/home"></a>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end"  >
                 <a href="/Project/Tampilan.html" button class="btn btn-danger "  type="button" >Back</button></a>
                   </div>
             </div>
             <div class="card-body">
-                <form action="" method="POST">
+                <form action="/jabatans" method="POST">
                     <div class="mb-3 row">
                         <label for="nama" class="col-sm-2 col-form-label" >Jabatan Baru</label>
                         <div class="col-sm-10">
@@ -55,7 +55,7 @@
             </div>
         </div>
 
-        <!-- untuk mengeluarkan data -->
+        untuk mengeluarkan data
         <div class="card">
             <div class="card-header text-white bg-secondary">
                 Data Jabatan Baru
@@ -72,18 +72,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($karyawans as $k)
+                        @foreach($jabatans as $k)
                             <tr>
                                 <th scope="row"></th>
-                                <td scope="row">{{ $k->nama_karyawan }}</td>
-                                <td scope="row">{{ $k->jabatan_karyawan }}</td>
-                                <td scope="row">{{ $k->umur_karyawan }}</td>
+                                <td scope="row">{{ $k->nama_jabatan }}</td>
+                                <td scope="row">{{ $k->gaji_pokok }}</td>
+                                <td scope="row">{{ $k->gaji_lembur }}</td>
                                 <td scope="row"></td>
                                 <td scope="row">
-                                    <a href="/karyawans/edit/{{ $k->id_karyawan }}" ><button type="button" class="btn btn-warning">Edit</button></a>
-                                    <a href="/karyawans/hapus/{{ $k->id_karyawan }}" onclick="return confirm('Yakin mau delete data?')"><button type="button" class="btn btn-danger">Delete</button></a>            
+                                    <a href="/jabatans/edit/{{ $k->id_jabatan }}" ><button type="button" class="btn btn-warning">Edit</button></a>
+                                    <a href="/jabatans/hapus/{{ $k->id_jabatan }}" onclick="return confirm('Yakin mau delete data?')"><button type="button" class="btn btn-danger">Delete</button></a>            
                                 </td>
-                            </tr>
+                            </tr>q
                         @endforeach
                     </tbody>
                     
@@ -93,4 +93,4 @@
     </div>
 </body>
 
-</html>
+</html> -->

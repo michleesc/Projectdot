@@ -2,48 +2,105 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jabatan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class JabatansController extends Controller
 {
-    //
-    // public function view()
-    // {
-    //     $karyawans = DB::table('karyawans')->get();
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $jabt= DB::connection('db_jabatan')->table('jabatans')->get(); //cara laravel
+        return response()->json($jabt);
+    }
 
-    //     return view('jabatans/view', ['karyawans' => $karyawans]);
-    // }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create(Request $request)
+    {
+        $timestamp = \Carbon\Carbon::now()->toDateTimeString();
+        $response = $this->validate($request, [
+            'nama_jabatan' => 'required',
+        ]);
+        $request['created_at'] = $timestamp;
+        $request['updated_at'] = $timestamp;
 
 
-    // public function store(Request $request)
-    // {
-    //     DB::table('karyawans')->insert([
-    //         'nama_karyawan' => $request->nama,
-    //         'jabatan_karyawan' => $request->jabatan,
-    //         'umur_karyawan' => $request->umur,
-    //     ]);
-    //     return redirect('/jabatans/view');
-    // }
+        $jabt = DB::connection('db_jabatan')->table('jabatans')->insert($request->all());
+        return response()->json(response($response));
+    }
 
-    // public function edit($id)
-    // {
-    //     $karyawans = DB::table('karyawans')->where('id_karyawan',$id)->get();
-    //     return view('/jabatans/edit', ['karyawans' => $karyawans]);
-    // }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
 
-    // public function update(Request $request)
-    // {
-    //     DB::table('karyawans')->where('id_karyawan',$request->id)->update([
-    //         'nama_karyawan' => $request->nama,
-    //         'jabatan_karyawan' => $request->jabatan,
-    //         'umur_karyawan' => $request->umur,
-    //     ]);
-    //     return redirect('/jabatans/view');
-    // }
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\jabatan  $jabatan
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+        $jabt = DB::connection('db_jabatan')->table('jabatans')->where('id', $id)->first();
+        return response()->json($jabt);
+    }
 
-    // public function hapus($id)
-    // {
-    //     DB::table('karyawans')->where('id_karyawan',$id)->delete();
-    //     return redirect('/jabatans/view');
-    // }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\jabatan  $jabatan
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $jabt = DB::connection('db_jabatan')->table('jabatans')->where('id', $id)->get();
+        return response()->json(" EDIT $jabt");
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\jabatan  $jabatan
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+        $timestamp = \Carbon\Carbon::now()->toDateTimeString();
+        $request['updated_at'] = $timestamp;
+        $jabt = DB::connection('db_jabatan')->table('jabatans')->where('id', $id)->update($request->all());
+        return response()->json("Berhasil Update Data");
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\jabatan  $jabatan
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+        $jabt = DB::connection('db_jabatan')->table('jabatans')->where('id', $id)->delete();
+        return response()->json("Berhasil Hapus");
+    }
 }

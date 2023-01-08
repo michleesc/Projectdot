@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('jabatans', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        Schema::connection('db_jabatan')->dropIfExists('jabatans');
+            Schema::connection('db_jabatan')->create('jabatans', function (Blueprint $table) {
+                $table->id();
+                $table->string('nama_jabatan');
+                $table->timestamps();
+            });
     }
 
     /**

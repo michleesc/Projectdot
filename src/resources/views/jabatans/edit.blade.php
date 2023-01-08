@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -20,7 +20,7 @@
 
 <body>
     <div class="mx-auto">
-        <!-- untuk memasukkan data -->
+        untuk memasukkan data
         <div class="card" >
             <div class="card-header">
                 <a href="/Project/Tampilan.html"></a>
@@ -55,7 +55,7 @@
             </div>
         </div>
 
-        <!-- untuk mengeluarkan data -->
+        untuk mengeluarkan data
         <div class="card">
             <div class="card-header text-white bg-secondary">
                 Data Jabatan Baru
@@ -93,4 +93,4 @@
     </div>
 </body>
 
-</html>
+</html> -->
