@@ -5,7 +5,7 @@ return [
     'migrations' => 'migrations',
     'connections' => [
         'project_akhir' => [
-            'driver' => 'DB_CONNECTION',
+            'driver' => 'mysql',
             'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'forge'),
@@ -17,7 +17,7 @@ return [
         ],
 
         'db_karyawan' => [
-            'driver' => 'DB_CONNECTION',
+            'driver' => 'mysql',
             'host' => env('DB_HOST_KARYAWAN', 'localhost'),
             'port' => env('DB_PORT_KARYAWAN', '3306'),
             'database' => env('DB_DATABASE_KARYAWAN', 'forge'),
@@ -29,7 +29,7 @@ return [
         ],
 
         'db_jabatan' => [
-            'driver' => 'DB_CONNECTION',
+            'driver' => 'mysql',
             'host' => env('DB_HOST_JABATAN', 'localhost'),
             'port' => env('DB_PORT_JABATAN', '33306'),
             'database' => env('DB_DATABASE_JABATAN', 'forge'),

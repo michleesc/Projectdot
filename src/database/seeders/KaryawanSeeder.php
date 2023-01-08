@@ -15,11 +15,13 @@ class KaryawanSeeder extends Seeder
      */
     public function run()
     {
-        $karyawan = new Karyawan;
-        $karyawan-> nama_karyawan = 'Vernando';
-        $karyawan-> jabatan_karyawan = 'Staff';
-        $karyawan-> umur_karyawan = '22';
-        $karyawan->save();
+        //reset table
+        Karyawan::truncate();
+
+        //buat data karyawan
+        $karyawan1 = Karyawan::create(['nama_karyawan' => 'Wisnu Hidayat', 'gaji_perjam' => 20000, 'id_jabatan' => 1]);
+        $karyawan2 = Karyawan::create(['nama_karyawan' => 'Vernando', 'gaji_perjam' => 15000, 'id_jabatan' => 2]);
+        $karyawan3 = Karyawan::create(['nama_karyawan' => 'Fazhli Ridwan', 'gaji_perjam' => 10000, 'id_jabatan' => 3]);
 
     }
 }
