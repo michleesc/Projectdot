@@ -16,11 +16,11 @@ class Karyawan extends Model
 
     public function jabatans()
     {
-        return $this->hasOne('App\Jabatan','id_jabatan','id');
+        return $this->hasOne('App\Models\Jabatan','id_jabatan','id');
     }
 
     public function penggajians()
     {
-        return $this->hasMany('App\Penggajian','id_karyawan', 'id');
+        return $this->hasMany('App\Models\Penggajian','id_karyawan', 'id');
     }
 }

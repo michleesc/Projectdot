@@ -16,6 +16,6 @@ class Penggajian extends Model
 
     public function karyawans()
     {
-        return $this->belongsTo('App\Karyawan','id_karyawan','id');
+        return $this->belongsTo('App\Models\Karyawan','id_karyawan','id');
     }
 }

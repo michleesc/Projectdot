@@ -16,6 +16,6 @@ class Jabatan extends Model
 
     public function karyawans()
     {
-        return $this->hasOne('App/Karyawan','id_jabatan', 'id');
+        return $this->hasOne('App\Models\Karyawan','id_jabatan', 'id');
     }
 }
