@@ -31,7 +31,7 @@ return [
         'db_jabatan' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST_JABATAN', 'localhost'),
-            'port' => env('DB_PORT_JABATAN', '33306'),
+            'port' => env('DB_PORT_JABATAN', '3306'),
             'database' => env('DB_DATABASE_JABATAN', 'forge'),
             'username' => env('DB_USERNAME_JABATAN', 'forge'),
             'password' => env('DB_PASSWORD_JABATAN', ''),
